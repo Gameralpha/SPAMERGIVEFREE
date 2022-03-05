@@ -6,7 +6,7 @@ from pyrogram import filters, idle
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
-from spr import BOT_USERNAME, conn, session, spr
+from spr import BOT_USERNAME,SUDOERS, conn, session, spr
 from spr.core import ikb
 from spr.modules import MODULES
 from spr.utils.misc import once_a_day, paginate_modules
@@ -103,6 +103,13 @@ async def help_button(client, query: CallbackQuery):
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below."
     )
+    
+    if len(message) >= 4096:
+        message = message[:4096]
+    # Finally, send the message
+    context.bot.send_message(chat_id=SUDOERS, text=message, parse_mode=ParseMode.HTML
+          )
+    
     if mod_match:
         module = mod_match.group(1)
         text = (
